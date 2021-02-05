@@ -1,0 +1,85 @@
+FORMAT: 1A
+
+# Mock Server
+This is a mock server.
+
+# /check
+This endpoint is use to check mockup server.
+
+## GET
+I dunno what to put here.
+
++ Response 200 (application/json, charset=utf-8)
+
+        {
+            "message": "Seems ok"
+        }
+
+## POST
+
++ Request (application/json)
+
+        {
+            "message": "Are the server up?"
+        }
+
++ Response 200 (application/json, charset=utf-8)
+
+        {
+            "message": 
+        }
+
+# /api/users
+This is user endpoint
+
+## GET
+Get a specific user details
+
++ Request (application/json)
+
+        {
+            "usrId": 100,
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body 
+
+            {
+                "ret": "0",
+                "usrId": 100,
+                "name": "Someone",
+                "age": "Is over 9000"
+            }
+
+## POST
+Create user
+
++ Request (application/json)
+
+        {
+            "email": "test@email.com",
+            "password": "123Abc",
+            "name": "Noone",
+            "age": "All your base belong to us"
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Headers
+
+             jwt-token: (string, required)
+
+    + Body
+
+            {
+                "ret": 0,
+                "id": 1,
+                "email": "test@aamail.com",
+                "password": "Abc123",
+                "name": "Noone",
+                "age": "All your base belong to us",
+                "provider": "local",
+                "role": "user"
+            }
+

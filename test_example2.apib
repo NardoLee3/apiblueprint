@@ -1,0 +1,133 @@
+FORMAT: 1A
+
+# Health Check [GET /]
+Check server
+
++ Response 200 (application/json)
+
+        {
+            "msg": "Seems ok!"
+        }
+
+# Get 1st User [GET /user/1]
+
++ Request (application/json)
+
+        {
+            "usrId": 1
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body 
+
+            {
+                "ret": "0",
+                "usrId": 1,
+                "name": "Someone",
+                "age": "Is over 9000"
+            }
+
+# Get 2nd User [GET /user/2]
+
++ Request (application/json)
+
+        {
+            "usrId": 2
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body 
+
+            {
+                "ret": "0",
+                "usrId": 2,
+                "name": "Someone",
+                "age": "Is over 9000"
+            }
+
+# Get User No User Found Error [GET /user/3]
+
++ Request (application/json)
+
+        {
+            "usrId": 3
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body 
+
+            {
+                "ret": "-99",
+                "msg": "no user found"
+            }
+
+# Get User NO Id Found Error [GET /user/3]
+
++ Request (application/json)
+
+        {
+            "usrId": 4
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body 
+
+            {
+                "ret": "0",
+                "msg": "4"
+            }
+
+# Get A User [GET /user/{id}]
+
++ Request (application/json)
+
+        {
+            "usrId": 100
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Body 
+
+            {
+                "ret": "10",
+                "usrId": 100,
+                "name": "Someone",
+                "age": "Is over 9000"
+            }
+
+# Create User [POST /user/create]
+Create a user
+
++ Request (application/json)
+
+        {
+            "email": "test@email.com",
+            "password": "123Abc",
+            "name": "Noone",
+            "age": "All your base belong to us"
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+    + Headers
+
+             jwt-token: (string, required)
+
+    + Body
+
+            {
+                "ret": 0,
+                "id": 1,
+                "email": "test@aamail.com",
+                "password": "Abc123",
+                "name": "Noone",
+                "age": "All your base belong to us",
+                "provider": "local",
+                "role": "user"
+            }
+
