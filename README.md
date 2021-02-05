@@ -1,7 +1,7 @@
 # apiblueprint
 
-##Mock server 
-###drakov
+## Mock server 
+### drakov
 https://www.npmjs.com/package/drakov
 
 start mock server
@@ -9,8 +9,8 @@ start mock server
 drakov -f test_example2.apib
 ```
 
-##Webpage
-###snowboard
+## Webpage
+### snowboard
 https://www.npmjs.com/package/snowboard
 start
 ```
